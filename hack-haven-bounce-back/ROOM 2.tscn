@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://dfvlutaeaw6rn" path="res://New Piskel (6).png" id="3_1jk0r"]
 [ext_resource type="Script" uid="uid://bb6l8n1tejfj7" path="res://character_body_2d.gd" id="3_n2ld8"]
 [ext_resource type="Texture2D" uid="uid://d10j1suui17vx" path="res://New Piskel (2).png" id="4_1jk0r"]
+[ext_resource type="Script" uid="uid://dpq5c60pjqho6" path="res://area_2d_2.gd" id="6_xtkwq"]
+[ext_resource type="Texture2D" uid="uid://owtlqunisj4x" path="res://New Piskel (5).png" id="7_0q883"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n2ld8"]
 texture = ExtResource("2_n2ld8")
@@ -27,10 +29,13 @@ size = Vector2(57, 56)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n2ld8"]
 size = Vector2(163.48581, 216.81862)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g1csv"]
+size = Vector2(7.61903, 8.640018)
+
 [node name="Room2" type="Node2D" unique_id=938511047]
 
 [node name="Maxresdefault" type="Sprite2D" parent="." unique_id=1127058869]
-position = Vector2(580.00006, 325)
+position = Vector2(583.00006, 328)
 scale = Vector2(0.89921874, 0.89999986)
 texture = ExtResource("1_lsyva")
 
@@ -57,14 +62,30 @@ shape = SubResource("RectangleShape2D_1jk0r")
 [node name="Area2D" type="Area2D" parent="Maxresdefault" unique_id=136857388]
 position = Vector2(-499.87842, -304.44452)
 
+[node name="NewPiskel(6)" type="Sprite2D" parent="Maxresdefault/Area2D" unique_id=74107750]
+position = Vector2(1019.218, 440.00012)
+scale = Vector2(2.9191995, 3.4722238)
+texture = ExtResource("3_1jk0r")
+
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Maxresdefault/Area2D" unique_id=471571705]
 position = Vector2(1017, 475.25)
 scale = Vector2(0.11010091, 0.12222214)
 shape = SubResource("RectangleShape2D_n2ld8")
 
-[node name="NewPiskel(6)" type="Sprite2D" parent="Maxresdefault/Area2D/CollisionShape2D2" unique_id=74107750]
-position = Vector2(20.145508, -288.4087)
-scale = Vector2(26.513853, 28.409122)
-texture = ExtResource("3_1jk0r")
+[node name="Area2D2" type="Area2D" parent="Maxresdefault" unique_id=1756664101]
+position = Vector2(519.3396, 135.55563)
+scale = Vector2(2.9191995, 3.4722238)
+script = ExtResource("6_xtkwq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Maxresdefault/Area2D2" unique_id=1316896174]
+position = Vector2(-31.61905, 9.7599945)
+scale = Vector2(0.9999999, 1)
+shape = SubResource("RectangleShape2D_g1csv")
+
+[node name="NewPiskel(5)" type="Sprite2D" parent="Maxresdefault/Area2D2/CollisionShape2D" unique_id=813824345]
+position = Vector2(-1.9047546, -10.399948)
+scale = Vector2(1.1034983, 1.0299996)
+texture = ExtResource("7_0q883")
 
 [connection signal="body_entered" from="Maxresdefault/Area2D" to="Maxresdefault/CharacterBody2D" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Maxresdefault/Area2D2" to="Maxresdefault/Area2D2" method="_on_body_exited"]
