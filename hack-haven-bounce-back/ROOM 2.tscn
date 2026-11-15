@@ -1,3 +1,36 @@
 [gd_scene format=3 uid="uid://bp8sn5wkf43tp"]
 
+[ext_resource type="Texture2D" uid="uid://cyd1th18mp01n" path="res://maxresdefault.jpg" id="1_lsyva"]
+[ext_resource type="Texture2D" uid="uid://cgw4sfvkybade" path="res://5A8A45F1-AA52-46A8-ADDB-67CBC734B92D.png" id="2_xuxu6"]
+[ext_resource type="Script" uid="uid://bb6l8n1tejfj7" path="res://character_body_2d.gd" id="3_n2ld8"]
+[ext_resource type="Texture2D" uid="uid://d10j1suui17vx" path="res://New Piskel (2).png" id="4_1jk0r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v5g72"]
+size = Vector2(57, 56)
+
 [node name="Room2" type="Node2D" unique_id=938511047]
+
+[node name="Maxresdefault" type="Sprite2D" parent="." unique_id=1127058869]
+position = Vector2(641, 360)
+texture = ExtResource("1_lsyva")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2101819789]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2000917245]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=2031076896]
+position = Vector2(192, 571)
+scale = Vector2(0.099000014, 0.08900001)
+texture = ExtResource("2_xuxu6")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1696063885]
+script = ExtResource("3_n2ld8")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=137537462]
+position = Vector2(118, 467.99994)
+scale = Vector2(1.7812511, 1.75)
+texture = ExtResource("4_1jk0r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1477376171]
+position = Vector2(118, 469)
+shape = SubResource("RectangleShape2D_v5g72")
