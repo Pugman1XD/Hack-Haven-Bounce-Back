@@ -1,0 +1,48 @@
+[gd_scene format=4 uid="uid://iayrheyny1p8"]
+
+[ext_resource type="Texture2D" uid="uid://bn6ymbkxuxn71" path="res://download (3).png" id="1_6jfw8"]
+[ext_resource type="Texture2D" uid="uid://b04jw60fierw1" path="res://New Piskel (1).png" id="2_p4x0o"]
+[ext_resource type="Script" uid="uid://bb6l8n1tejfj7" path="res://character_body_2d.gd" id="2_ppiok"]
+[ext_resource type="Texture2D" uid="uid://ccivcvwjw7mut" path="res://icon.svg" id="3_p4x0o"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0nlff"]
+texture = ExtResource("2_p4x0o")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_0pfhn"]
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_0nlff")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0pfhn"]
+size = Vector2(128, 126)
+
+[node name="Room1" type="Node2D" unique_id=722585350]
+
+[node name="Download(3)" type="Sprite2D" parent="." unique_id=1360592964]
+position = Vector2(576, 325)
+scale = Vector2(4.35606, 4.391892)
+texture = ExtResource("1_6jfw8")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Download(3)" unique_id=1686017933]
+position = Vector2(-132.22957, -73.99999)
+scale = Vector2(0.22956523, 0.22769229)
+tile_map_data = PackedByteArray("AAAWABUAAQAAAAAAAAAWABYAAQAAAAEAAAAXABUAAQABAAAAAAAXABYAAQABAAEAAAAYABUAAQAAAAAAAAAYABYAAQAAAAEAAAAZABUAAQABAAAAAAAZABYAAQABAAEAAAAYABcAAQAAAAAAAAAYABgAAQAAAAEAAAAZABcAAQABAAAAAAAZABgAAQABAAEAAAAYABkAAQAAAAAAAAAYABoAAQAAAAEAAAAZABkAAQABAAAAAAAZABoAAQABAAEAAAAWABkAAQAAAAAAAAAWABoAAQAAAAEAAAAXABkAAQABAAAAAAAXABoAAQABAAEAAAAUABkAAQAAAAAAAAAUABoAAQAAAAEAAAAVABkAAQABAAAAAAAVABoAAQABAAEAAAAUABcAAQAAAAAAAAAUABgAAQAAAAEAAAAVABcAAQABAAAAAAAVABgAAQABAAEAAAAUABUAAQAAAAAAAAAUABYAAQAAAAEAAAAVABUAAQABAAAAAAAVABYAAQABAAEAAAAWABMAAQAAAAAAAAAWABQAAQAAAAEAAAAXABMAAQABAAAAAAAXABQAAQABAAEAAAAYABMAAQAAAAAAAAAYABQAAQAAAAEAAAAZABMAAQABAAAAAAAZABQAAQABAAEAAAA=")
+tile_set = SubResource("TileSet_0pfhn")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1589085542]
+script = ExtResource("2_ppiok")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=939479670]
+position = Vector2(380, 78)
+texture = ExtResource("3_p4x0o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1765848286]
+position = Vector2(380, 78)
+shape = SubResource("RectangleShape2D_0pfhn")
