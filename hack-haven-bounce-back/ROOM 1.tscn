@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d10j1suui17vx" path="res://New Piskel (2).png" id="4_ppiok"]
 [ext_resource type="Texture2D" uid="uid://b7wq4qp1pyk5u" path="res://FC20E0B7-58E1-4B26-8BBA-5C0A8A6ACE6B.png" id="5_p4x0o"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0nlff"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p4x0o"]
 texture = ExtResource("2_p4x0o")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -19,7 +19,7 @@ texture = ExtResource("2_p4x0o")
 
 [sub_resource type="TileSet" id="TileSet_0pfhn"]
 physics_layer_0/collision_layer = 1
-sources/1 = SubResource("TileSetAtlasSource_0nlff")
+sources/1 = SubResource("TileSetAtlasSource_p4x0o")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0pfhn"]
 size = Vector2(57, 56)
@@ -52,7 +52,7 @@ scale = Vector2(1.7812511, 1.75)
 texture = ExtResource("4_ppiok")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1765848286]
-position = Vector2(118, 469)
+position = Vector2(118, 468)
 shape = SubResource("RectangleShape2D_0pfhn")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1676786664]
