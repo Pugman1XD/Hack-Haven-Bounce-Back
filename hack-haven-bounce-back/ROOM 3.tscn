@@ -27,6 +27,27 @@ size = Vector2(57, 56)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6bmee"]
 size = Vector2(163.48581, 216.81862)
 
+[sub_resource type="GDScript" id="GDScript_0b828"]
+script/source = "extends Area2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_body_entered(body: Node2D) -> void:
+	get_tree().change_scene_to_file(\"res://START.tscn\")
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0pfhn"]
+size = Vector2(25, 128)
+
 [node name="Room3" type="Node2D" unique_id=812721592]
 
 [node name="Background" type="Sprite2D" parent="." unique_id=885742462]
@@ -104,7 +125,15 @@ position = Vector2(652.8784, 672.4446)
 scale = Vector2(0.11010091, 0.12222214)
 shape = SubResource("RectangleShape2D_6bmee")
 
+[node name="Area2D" type="Area2D" parent="." unique_id=1445651985]
+script = SubResource("GDScript_0b828")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1833537301]
+position = Vector2(1197, 106)
+shape = SubResource("RectangleShape2D_0pfhn")
+
 [connection signal="body_entered" from="Area2D3" to="Player" method="_on_area_2d_3_body_entered"]
 [connection signal="body_entered" from="Area2D6" to="Player" method="_on_area_2d_3_body_entered"]
 [connection signal="body_entered" from="Area2D5" to="Player" method="_on_area_2d_3_body_entered"]
 [connection signal="body_entered" from="Area2D4" to="Player" method="_on_area_2d_3_body_entered"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
